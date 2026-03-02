@@ -1,0 +1,19 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+td, th{
+    padding: 0.3rem;
+}
+thead{
+    background-color: rgb(18, 47, 86);
+}
+tbody{
+    background-color: rgba(18, 47, 86, 0.484);
+}

@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+table{
+    border-collapse: collapse;
+    text-align: center;
+    border-color:  rgba(144, 144, 144, 0.628) ;
+}
+td, th{
+    padding: 0.3rem;
+    border-color:  rgba(144, 144, 144, 0.628) ;
+
+}
+thead{
+    background-color: rgba(207, 207, 207, 0.234);
+    
+}
+tbody{
+    background-color: rgba(255, 255, 255, 0.484);
+}
+.titulo{
+    background-color: rgb(89, 228, 89);
+    color: white;
+}
+.genero{
+    background-color: rgb(236, 236, 4);
+}
+.cinza{
+    background-color: rgba(207, 207, 207, 0.234);
+}
