@@ -1,0 +1,13 @@
+:root {
+    /* Seção Principal/Hero e NavBar */
+    --font-text-navBar: 'Roboto', sans-serif;
+    --font-size-navBar: 20px;
+    --font-weight-navBar: 450;
+    --text-color-navBar: #ffffff;         /* TEXTO BRANCO para a NavBar flutuante */
+    --text-color-idiomas: #ffffff;        /* Texto branco dentro do menu do idioma */
+    --background-color-navBar: transparent; /* Fundo invisível para flutuar */
+    --background-color: #011336;          /* Azul escuro para a caixinha do idioma */
+
+    /* Próximas Seções */
+    /* Seção 2 */
+}

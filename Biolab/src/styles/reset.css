@@ -1,21 +1,20 @@
-*{
-    margin: 0; 
-    padding: 0; 
-    text-decoration: none;
-    border: none;
-    box-sizing:border-box;
+* {
+  padding: 0; /*Define tamanho interno de um elemento*/
+  margin: 0; /*Define margem*/
+  border: 0; /*Define borda*/
+  box-sizing: border-box; /*Define redimensionamento*/
+  text-decoration: none; /*Define decoração do texto*/
+  list-style: none; /*Define estilo da lista, bolinha ou numero*/
 }
-:root{
-    --primary-color:#FFFFFF;
-    --secondary-color:#ECECED;
-    --degradet-top-color:#011131;
-    --degradet-middle-color:#01153B;
-    --degradet-bottom-color:#000B23;
-    --caixa-comentario-color:#2F3C5C;
-    --fonte-footer-color:#93DFFA;
-    --fonte-noticias-color:#0486F2;
-    --fonte-data-noticias-color:#054E8E;
-    --neutral-white:#FFFFFF;
-    --neutral-black:#000000;
 
+button {
+  background: none; /*Define fundo do botão*/
+  border: none; /*Define borda do botão*/
+  cursor: pointer; /*Garante que o cursor mude para a forma de mão ao passar sobre o botão*/
+  font: inherit; /*Garante que o botão herde a fonte do elemento pai*/
+}
+img {
+  display: block; /*Define a imagem como um bloco, eliminando o espaço em branco abaixo dela*/
+  max-width: 100%; /*Garante que a imagem não ultrapasse a largura do seu contêiner pai*/
+  height: auto; /*Mantém a proporção da imagem ao redimensioná-la*/
 }

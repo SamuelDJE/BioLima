@@ -1,14 +1,316 @@
-:root{
-    --primary-color:#FFFFFF;
-    --secondary-color:#ECECED;
-    --degradet-top-color:#011131;
-    --degradet-middle-color:#01153B;
-    --degradet-bottom-color:#000B23;
-    --caixa-comentario-color:#2F3C5C;
-    --fonte-footer-color:#93DFFA;
-    --fonte-noticias-color:#0486F2;
-    --fonte-data-noticias-color:#054E8E;
-    --neutral-white:#FFFFFF;
-    --neutral-black:#000000;
+/* ==========================================================================
+   1. CONEXÃO DOS ARQUIVOS (CONFIGURAÇÕES GERAIS)
+   ========================================================================== */
+@import "variaveis.css";
+@import "reset.css";
 
+
+/* ==========================================================================
+   2. A BARRA DO TOPO (NAVBAR FLUTUANTE COM BLUR)
+   ========================================================================== */
+.NavBar {
+  /* Deixa o logo, os links e as ações um ao lado do outro em linha */
+  display: flex;                   
+  justify-content: space-between;  /* Empurra os blocos para as pontas e o meio */
+  align-items: center;             /* Alinha todo mundo na mesma altura vertical */
+  padding: 25px 60px;              /* Afasta os elementos das bordas da tela */
+  
+  /* Faz a barra flutuar por cima da foto grande do site */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;                     /* Ocupa toda a largura da tela */
+  z-index: 100;                    /* Garante que o menu fique na frente da foto */
+  
+  /* EFEITO DE VIDRO FOSCO (BLUR) */
+  background-color: rgba(255, 255, 255, 0.03); /* Película branca quase invisível */
+  backdrop-filter: blur(12px);                  /* Desfoca o topo da foto que passa atrás */
+  -webkit-backdrop-filter: blur(12px);          /* Garante que funcione em aparelhos Apple */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Linha fina de acabamento na base */
+}
+
+/* Tamanho do desenho do Logotipo */
+.logo img {
+  width: 170px;                    
+  height: auto;                    
+}
+
+
+/* ==========================================================================
+   3. OS LINKS DO MEIO (MENU DE NAVEGAÇÃO BRANCO)
+   ========================================================================== */
+.navegacao-principal ul {
+  display: flex;                   
+  align-items: center;             
+  gap: 57px;                       /* Espaço de 57 passos entre cada palavra */
+}
+
+.dropdown {
+  display: flex;                   
+  align-items: center;
+  gap: 6px;                        /* Mini espaço entre a palavra e a setinha */
+}
+
+.navegacao-principal a {
+  color: var(--text-color-navBar);       /* Puxa o BRANCO da sua variável */
+  font-family: var(--font-text-navBar);  
+  font-size: var(--font-size-navBar);    
+  font-weight: var(--font-weight-navBar);
+  position: relative; 
+  padding-bottom: 6px; 
+  transition: opacity 0.2s;              
+}
+
+.navegacao-principal a:hover {
+  opacity: 0.7;                    /* Dá uma leve apagadinha ao passar o mouse */
+}
+
+/* CRIANDO A LINHA INVISÍVEL EMBAIXO DO TEXTO */
+.navegacao-principal a::after {
+  content: "";                  
+  position: absolute;
+  bottom: 0;                    
+  left: 0;                      
+  width: 0%;                    /* Começa com tamanho zero (escondida) */
+  height: 3px;                  /* Grossura da linha azul */
+  background-color: #007bff;    /* Cor azul da linha animada */
+  transition: width 0.2s ease-in-out; /* Faz a linha esticar de forma suave */
+}
+
+/* FOTO DO SITE REAL: Ativa a linha azul deslizante quando o mouse passa em cima */
+.navegacao-principal a:hover::after {
+  width: 100%;                  
+}
+
+/* Ajuste das setinhas do menu central */
+.seta-dropdown img {
+  width: 10px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Pinta as setinhas de branco para combinar com o texto */
+}
+
+
+/* ==========================================================================
+   4. OS BOTÕES DA DIREITA (LUPA E IDIOMA)
+   ========================================================================== */
+.acoes-usuario {
+  display: flex;                   
+  align-items: center;             
+  gap: 25px;                       /* Afasta a lupa da bandeira */
+}
+
+/* Ajuste do ícone da lupa */
+.btn-pesquisa img {
+  width: 30px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Pinta o ícone da lupa de branco */          
+}
+
+
+/* ==========================================================================
+   5. O MENU SUSPENSO DA BANDEIRA (IDIOMAS)
+   ========================================================================== */
+.dropdown-idioma {
+  position: relative;              /* Âncora para a caixinha saber onde nascer */
+}
+
+.btn-idioma-atual {
+  display: flex;                   
+  align-items: center;
+  gap: 5px;                        
+}
+
+.btn-idioma-atual img:first-child {
+  width: 35px;                     /* Tamanho da bandeira do Brasil */
+}
+
+.btn-idioma-atual img:last-child {
+  width: 8px;
+  height: auto;
+  filter: brightness(0) invert(1); /* Pinta a setinha pequena do idioma de branco */          
+}
+
+/* A caixinha que fica guardando as outras línguas */
+.lista-idiomas {
+  display: none;                   /* Escondida por padrão */
+  position: absolute;              
+  top: 100%;                       /* Grudada no botão para o mouse não perder o foco */
+  right: 0;                        
+  background-color: var(--background-color); /* Fundo azul escuro da sua variável */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); 
+  border-radius: 5px;              
+  padding: 8px 0;                  
+  min-width: 150px;                
+}
+
+.lista-idiomas li a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  color: var(--text-color-idiomas);/* Texto branco no fundo escuro */
+  font-family: var(--font-text-navBar);
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.lista-idiomas li a:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Realce transparente na opção */
+}
+
+.dropdown-idioma:hover .lista-idiomas {
+  display: block;                  /* Faz a caixinha aparecer ao passar o mouse */
+}
+
+
+/* ==========================================================================
+   6. A GRANDE FOTO DE FUNDO (HERO)
+   ========================================================================= */
+.hero {
+  width: 100%;                     
+  height: 100vh;                   /* Ocupa a altura inteira do monitor */
+  background-image: url("/Biolab/src/assets/images/fundo.svg"); 
+  background-repeat: no-repeat;    
+  background-size: cover;          
+  background-position: center;     
+  background-color: var(--background-color); 
+}
+
+/* ==========================================================================
+   7. SEÇÃO DO CARROSSEL DE IMAGENS INTEIRAS (PARTE 1)
+   ========================================================================== */
+
+.Carrossel {
+  /* Faz o carrossel ocupar toda a largura horizontal do monitor */
+  width: 100%; 
+  
+  /* Obriga o carrossel a ter a altura exata da tela inteira do usuário */
+  height: 100vh; 
+  
+  /* Transforma o carrossel em uma âncora para podermos prender as setas laterais nele */
+  position: relative; 
+  
+  /* Esconde os outros 7 slides que estão na fila de espera para não vazarem para fora */
+  overflow: hidden; 
+  
+  /* Se a imagem falhar, mostra o azul escuro da sua lista de variáveis por segurança */
+  background-color: var(--background-color); 
+}
+
+.container-carrossel {
+  /* Ocupa todo o espaço interno da seção do carrossel */
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Regra geral para todos os 8 links de slides (as tags "a") */
+.container-carrossel a {
+  /* Tira os links do chão e empilha todos um em cima do outro, no mesmo lugar */
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  /* Faz cada link esticar e ocupar a tela inteira */
+  width: 100%;
+  height: 100%;
+  
+  /* Deixa todos os 8 slides invisíveis e "escondidos" do mouse por padrão */
+  opacity: 0;
+  visibility: hidden;
+  
+  /* MÁGICA: Faz o efeito de aparecer e sumir demorar 0.6 segundos de forma bem suave */
+  transition: opacity 0.6s ease-in-out, visibility 0.6s;
+}
+
+/* Quando o JavaScript decide acender um slide, ele adiciona a palavra 'active' nele */
+.container-carrossel a.active {
+  /* Torna o slide atual 100% visível e clicável na tela */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Controla o tamanho das fotos inteiras que estão dentro dos links */
+.container-carrossel img {
+  /* Obriga a foto a preencher todo o espaço do link */
+  width: 100%;
+  height: 100%;
+  
+  /* Corta e adapta a imagem de forma inteligente para não amassar em telas diferentes */
+  object-fit: cover; 
+}
+
+
+/* ==========================================================================
+   8. ESTILIZAÇÃO DAS SETAS LATERAIS DO CARROSSEL
+   ========================================================================== */
+
+.seta-carrossel {
+  /* Solta o botão na tela para podermos movê-lo para as laterais com precisão */
+  position: absolute;
+  
+  /* Coloca as setas exatamente na metade da altura da tela */
+  top: 50%;               
+  transform: translateY(-50%);
+  
+  /* Coloca as setas na camada da frente (eixo Z) para as fotos não cobrirem os botões */
+  z-index: 10;            
+  
+  /* Define o tamanho da bolinha do botão */
+  width: 60px;
+  height: 60px;
+  
+  /* Fundo branco bem transparente (efeito de vidro) */
+  background-color: rgba(255, 255, 255, 0.2); 
+  
+  /* Desfoca suavemente o pedaço da imagem que passa atrás da bolinha do botão */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  
+  /* Deixa o botão perfeitamente redondo */
+  border-radius: 50%;     
+  
+  /* Centraliza o desenho da setinha bem no meio da bolinha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Deixa a bordinha do botão invisível */
+  border: none;
+  
+  /* Transforma a seta do mouse na mãozinha de clique */
+  cursor: pointer;
+  
+  /* Faz o efeito de acender o botão ao passar o mouse acontecer de forma suave */
+  transition: background-color 0.2s;
+}
+
+/* Quando o usuário coloca a setinha do mouse em cima da bolinha da seta */
+.seta-carrossel:hover {
+  /* O fundo branco do botão acende um pouco mais */
+  background-color: rgba(255, 255, 255, 0.4); 
+}
+
+/* Tamanho do desenho da setinha interna */
+.seta-carrossel img {
+  width: 20px;
+  height: auto;
+  
+  /* Se o seu arquivo original for preto, essa linha joga ele para o BRANCO brilhante */
+  filter: brightness(0) invert(1); 
+}
+
+/* Empurra a seta de voltar para perto da borda esquerda da tela */
+.seta-esquerda {
+  left: 40px;
+}
+
+/* Espelha horizontalmente a imagem da seta caso o seu arquivo original aponte para a direita */
+.seta-esquerda img {
+  transform: scaleX(-1); 
+}
+
+/* Empurra a seta de avançar para perto da borda direita da tela */
+.seta-direita {
+  right: 40px;
 }
