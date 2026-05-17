@@ -1,0 +1,513 @@
+/* 1. CONFIGURAÇÕES INICIAIS */
+@import 'reset.css';
+
+/* 2. NAVBAR / CABEÇALHO */
+.cabecalho {
+    background-color: #466CC5;
+    display: flex;
+    align-items: center; 
+    padding: 15px 80px;
+    width: 100%;
+} 
+
+.menu-esquerdo {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+}
+
+.menu-esquerdo a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.setinha {
+    font-size: 10px;
+}
+
+.logo-centro {
+    display: flex; 
+    justify-content: center;
+    flex: 1;
+}
+
+.logo-centro img {
+    height: 40px;
+}
+
+.botao-direito {
+    display: flex; 
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.botao-escuro {
+    background-color: #032574;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 25px;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: background 0.3s;
+}
+
+.botao-escuro:hover {
+    background-color: #021a52;
+}
+
+/* 3. BANNER HERO PRINCIPAL */
+.hero-section {
+    background-image: url('/BioLima/src/assents/images/fundo-hero.svg');
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 70px);
+    min-height: 550px;
+    display: flex; 
+    align-items: center;
+    padding-left: 80px;
+}
+
+.hero-content h1 {
+    font-size: 52px;
+    font-weight: bold;
+    color: #000000;
+    line-height: 1.2;
+    margin-bottom: 25px;
+}
+
+.hero-content p {
+    font-size: 20px;
+    color: #333333;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+.botao-destaque {
+    background-color: #052261;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px 45px;
+    font-size: 16px;
+    font-weight: bold;
+    display: inline-block;
+    transition: opacity 0.3s;
+}
+
+.botao-destaque:hover {
+    opacity: 0.9;
+}
+
+/* 4. SEÇÃO DE SERVIÇOS (AJUDA) */
+.secao-ajuda {
+    padding: 60px 80px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.titulo-secao {
+    font-size: 32px;
+    font-weight: bold;
+    color: #052261;
+    margin-bottom: 50px;
+}
+
+.container-cartoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.cartao {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cartao-imagem {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.cartao-titulo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #052261;
+    margin-bottom: 15px;
+}
+
+.cartao-texto {
+    font-size: 15px;
+    color: #444444;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 320px;
+}
+
+.cartao-link {
+    font-size: 14px;
+    color: #466CC5;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.3s;
+}
+
+.cartao-link:hover {
+    color: #052261;
+}
+
+/* 5. VITRINE DE PRODUTOS */
+.secao-produtos {
+    padding: 60px 80px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.titulo-produtos {
+    font-size: 32px;
+    font-weight: bold;
+    color: #052261;
+    max-width: 800px;
+    margin: 0 auto 20px auto;
+    line-height: 1.3;
+}
+
+.subtitulo-produtos {
+    font-size: 14px;
+    color: #555555;
+    margin-bottom: 50px;
+}
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+    row-gap: 60px;
+}
+
+.produto-cartao {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.produto-imagem-bloco {
+    width: 100%;
+    height: 240px;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+
+.produto-foto {
+    max-height: 80%;
+    max-width: 80%;
+    object-fit: contain;
+}
+
+.produto-categoria {
+    font-size: 12px;
+    color: #777777;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.produto-nome {
+    font-size: 20px;
+    font-weight: bold;
+    color: #052261;
+    margin-bottom: 8px;
+}
+
+.produto-nome-azul {
+    font-size: 20px;
+    font-weight: bold;
+    color: #466CC5;
+    margin-bottom: 8px;
+}
+
+.produto-detalhes {
+    font-size: 13px;
+    color: #666666;
+    line-height: 1.4;
+}
+
+/* 6. CARROSSEL DE DEPOIMENTOS */
+.secao-depoimentos {
+    padding: 60px 40px;
+    background-color: #f4f6fa;
+    text-align: center;
+}
+
+.titulo-depoimentos {
+    font-size: 32px;
+    font-weight: bold;
+    color: #052261;
+    margin-bottom: 15px;
+}
+
+.subtitulo-depoimentos {
+    font-size: 18px;
+    color: #466CC5;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.carrossel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.seta-carrossel {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.seta-carrossel:hover {
+    background-color: #052261;
+    color: #ffffff;
+    border-color: #052261;
+}
+
+.carrossel-janela {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carrossel-trilho {
+    display: flex;
+    gap: 25px;
+    width: 200%; 
+    transition: transform 0.5s ease-in-out;
+}
+
+.cartao-depoimento {
+    min-width: calc(16.666% - 21px);
+    background: linear-gradient(to bottom, #4da4e0, #205886);
+    border-radius: 4px;
+    padding: 35px 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.estrelas {
+    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+.texto-depoimento {
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+.autor-bloco {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.autor-foto {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.autor-dados {
+    display: flex;
+    flex-direction: column;
+}
+
+.autor-nome {
+    color: #bdf068;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.autor-cargo {
+    color: #ffffff;
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+.carrossel-indicadores {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.bolinha {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: none;
+    background-color: #cbd5e1;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bolinha.ativa {
+    background-color: #466CC5;
+}
+
+/* 7. SEÇÃO DE CONTATOS */
+.secao-contatos {
+    background-color: #466CC5;
+    padding: 80px 60px;
+    text-align: center;
+    color: #ffffff;
+}
+
+.titulo-contatos {
+    font-size: 40px;
+    font-weight: bold;
+    color: #052261;
+    margin-bottom: 15px;
+}
+
+.subtitulo-contatos {
+    font-size: 16px;
+    margin-bottom: 60px;
+    opacity: 0.9;
+}
+
+.container-contatos {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.coluna-contato {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.icone-contato {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+.contato-tipo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.contato-texto {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    opacity: 0.85;
+}
+
+.contato-link {
+    color: #ffffff;
+    text-decoration: underline;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.contato-endereco {
+    font-size: 14px;
+    line-height: 1.6;
+    opacity: 0.85;
+}
+
+/* 8. RODAPÉ DE PÁGINA (FOOTER) */
+.rodape-pagina {
+    background-color: #ffffff;
+    padding: 40px 60px 20px 60px;
+}
+
+.rodape-logo-bloco {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.rodape-logo {
+    height: 45px;
+}
+
+.linha-divisoria {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin-bottom: 20px;
+}
+
+.rodape-base {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright-texto {
+    font-size: 12px;
+    color: #777777;
+}
+
+.rodape-links-legais {
+    display: flex;
+    gap: 20px;
+}
+
+.rodape-links-legais a {
+    font-size: 12px;
+    color: #777777;
+    text-decoration: none;
+}
+
+.rodape-links-legais a:hover {
+    text-decoration: underline;
+    color: #333333;
+}
